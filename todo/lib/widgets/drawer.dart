@@ -1,6 +1,6 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:share/share.dart';
-import 'package:todo/screens/homePage.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class CustomDrawer extends StatelessWidget {
@@ -63,6 +63,16 @@ class CustomDrawer extends StatelessWidget {
             leading: Icon(Icons.share),
             title: Text(
               "Share",
+              style: TextStyle(fontSize: 17.0),
+            ),
+          ),
+          ListTile(
+            onTap: () async {
+              await FirebaseAuth.instance.signOut();
+            },
+            leading: Icon(Icons.home),
+            title: Text(
+              "Sign Out",
               style: TextStyle(fontSize: 17.0),
             ),
           ),
